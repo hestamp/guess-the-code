@@ -6,7 +6,12 @@ let guessWord,
   winScore = 0,
   streakScore = 0,
   diffuculty,
-  diffucultySet = 1
+  diffucultySet = 1,
+  chooseMode,
+  wordObj,
+  someArray = wordList,
+  indexWord,
+  hintPhraser
 
 const inputs = document.querySelector('.inputs'),
   resetBtn = document.querySelector('.resetButton'),
@@ -67,33 +72,45 @@ function randomWord() {
     streakStat.innerText = streakScore || 0
   }
   wrappMe.classList.remove('active', 'wrong')
-  //getting random object from array of words
-  let chooseMode = wordList
-    .filter(function (level) {
-      let difDaf = diffucultySet
 
-      return level.hard === difDaf
+  chooseMode = someArray
+    .filter(function (level) {
+      let dif = diffucultySet
+
+      return level.hard === dif
     })
     .map(function (level) {
       return level
     })
-  let wordObj = chooseMode[Math.floor(Math.random() * chooseMode.length)]
-  guessWord = wordObj.word //getting word from random object
-  maxGuesses = 5
-  incorrects = []
-  corrects = []
-  let hintPhraser = wordObj.hint
-  tipLetterArray = guessWord.split('')
-  hintPhrase.innerText = hintPhraser
-  guessesLeft.innerText = maxGuesses
-  wrongLetters.innerText = incorrects
+  if (chooseMode.length > 1) {
+    console.log(`Difficult level is: ${diffucultySet}`, chooseMode)
+    wordObj = chooseMode[Math.floor(Math.random() * chooseMode.length)]
+    console.log(wordObj)
+    indexWord = someArray.indexOf(wordObj)
+    console.log(indexWord)
+    guessWord = wordObj.word
+    maxGuesses = 5
+    incorrects = []
+    corrects = []
+    hintPhraser = wordObj.hint
+    tipLetterArray = guessWord.split('')
 
-  let html = ''
-  for (let i = 0; i < guessWord.length; i++) {
-    html += '<input class="input"type="text" disabled />'
+    let html = ''
+    for (let i = 0; i < guessWord.length; i++) {
+      html += '<input class="input"type="text" disabled />'
+    }
+    hintPhrase.innerText = hintPhraser
+    guessesLeft.innerText = maxGuesses
+    wrongLetters.innerText = incorrects
+    inputs.innerHTML = html
+    tipBtn.classList.remove('active')
+  } else {
+    hintPhrase.innerText = `Thats all. Realoading...`
+    wrappMe.classList.add('active')
+    setTimeout(function () {
+      location.reload(true)
+    }, 3000)
   }
-  inputs.innerHTML = html
-  tipBtn.classList.remove('active')
 }
 
 randomWord()
@@ -122,6 +139,9 @@ function tipPlease() {
         }
       }
     }
+  } else {
+    tipBtn.classList.add('active')
+    guessesLeft.innerText = `${maxGuesses} (no tips)`
   }
 }
 
@@ -137,6 +157,7 @@ function initGame(e) {
       for (let i = 0; i < guessWord.length; i++) {
         if (guessWord[i] === key) {
           corrects.push(key)
+
           inputs.querySelectorAll('input')[i].value = key
         }
       }
@@ -152,6 +173,8 @@ function initGame(e) {
   setTimeout(() => {
     if (corrects.length === guessWord.length) {
       wrappMe.classList.add('active')
+      someArray.splice(indexWord, 1)
+
       setTimeout(function () {
         randomWord()
         clearTimeout
