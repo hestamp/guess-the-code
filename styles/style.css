@@ -19,7 +19,7 @@ body {
     #7ba2c2 68%,
     #2081c2 98%
   );
-  animation: gradient 15s ease infinite;
+  animation: gradient 9s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
 }
@@ -36,22 +36,50 @@ body {
   }
 }
 
+@keyframes win {
+  0% {
+    border: 3px solid rgb(74, 180, 131);
+  }
+  50% {
+    border: 3px solid rgb(255, 255, 255);
+  }
+  100% {
+    border: 3px solid rgb(74, 180, 131);
+  }
+}
+
+@keyframes lose {
+  0% {
+    border: 3px solid rgb(180, 74, 74);
+  }
+  50% {
+    border: 3px solid rgb(255, 255, 255);
+  }
+  100% {
+    border: 3px solid rgb(180, 74, 74);
+  }
+}
+
 .wrapper {
   width: 450px;
   background: #ffffff;
   border-radius: 10px;
   margin: 10px;
-  box-shadow: -15px 15px 55px rgb(173, 173, 173),
-    15px -15px 55px rgb(173, 173, 173);
+  border: 3px solid #ccc;
+  box-shadow: -15px 15px 255px rgb(173, 173, 173),
+    15px -15px 255px rgb(173, 173, 173);
 }
 
 .wrapper.active {
-  box-shadow: -15px 15px 35px rgb(74, 180, 131),
-    15px -15px 55px rgb(85, 197, 119);
+  animation: win 0.5s ease;
+  box-shadow: -15px 15px 255px rgb(74, 180, 131),
+    15px -15px 255px rgb(85, 197, 119);
 }
 
 .wrapper.wrong {
-  box-shadow: -15px 15px 55px rgb(180, 74, 74), 15px -15px 55px rgb(180, 74, 74);
+  animation: lose 0.5s ease;
+  box-shadow: -15px 15px 255px rgb(180, 74, 74),
+    15px -15px 255px rgb(180, 74, 74);
 }
 
 .headers {
@@ -59,11 +87,12 @@ body {
   background: #fff;
   justify-content: center;
   border-radius: 10px;
+  border: 2px solid #ccc;
   position: absolute;
-  top: 150px;
+  top: 100px;
   text-align: center;
   margin: 10px;
-  box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  box-shadow: 3px 3px 3px rgb(173, 173, 173);
 }
 
 .levels {
@@ -71,31 +100,21 @@ body {
   background: #fff;
   justify-content: space-around;
   border-radius: 10px;
+  border: 2px solid #ccc;
   position: absolute;
   padding: 10px;
-  top: 225px;
+  top: 190px;
   display: flex;
   text-align: center;
   margin: 10px;
-  box-shadow: 5px 5px 5px rgb(173, 173, 173);
-}
-
-.guessedBlock {
-  width: 390px;
-  background: #fff;
-  border-radius: 10px;
-  position: absolute;
-  padding: 10px;
-  bottom: 235px;
-  display: flex;
-  margin: 10px;
-  box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  box-shadow: 3px 3px 3px rgb(173, 173, 173);
 }
 
 .levels .easyButton {
-  width: 25%;
+  width: 30%;
   font-size: 15px;
   color: #fff;
+  border-radius: 5px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -107,9 +126,10 @@ body {
 }
 
 .levels .medButton {
-  width: 25%;
+  width: 30%;
   font-size: 15px;
   color: #fff;
+  border-radius: 5px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -121,10 +141,11 @@ body {
 }
 
 .levels .hardButton {
-  width: 25%;
+  width: 30%;
   font-size: 15px;
   color: #fff;
   border: none;
+  border-radius: 5px;
   outline: none;
   cursor: pointer;
   background: rgb(83, 133, 167);
@@ -188,8 +209,9 @@ body {
   width: 250px;
   background: #fff;
   border-radius: 10px;
+  border: 2px solid #ccc;
   margin: 10px;
-  box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  box-shadow: 3px 3px 3px rgb(173, 173, 173);
 }
 
 @media only screen and (max-width: 750px) {
@@ -237,6 +259,65 @@ body {
   }
 }
 
+@media only screen and (max-height: 500px) {
+  .wrapper {
+    width: 400px;
+    position: absolute;
+    right: 30px;
+    background: #ffffff;
+    border-radius: 10px;
+    margin: 10px;
+    border: 3px solid #ccc;
+    box-shadow: -15px 15px 55px rgb(173, 173, 173),
+      15px -15px 55px rgb(173, 173, 173);
+  }
+  .scoreTable {
+    position: absolute;
+    left: 50px;
+    bottom: 40px;
+    justify-content: space-between;
+    width: 250px;
+    background: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  }
+
+  .headers {
+    position: absolute;
+    left: 50px;
+    top: 40px;
+    width: 250px;
+    background: #fff;
+    justify-content: center;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  }
+
+  .inputs input {
+    height: 35px;
+    width: 35px;
+    margin: 4px;
+    border: 2px solid #9dc6dd;
+    border-radius: 5px;
+    background: none;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1f567a;
+  }
+
+  .levels {
+    position: absolute;
+    top: 160px;
+    left: 25px;
+    width: 300px;
+  }
+}
+
 .scoreTable .stabs {
   margin: 15px;
   justify-content: space-around;
@@ -263,6 +344,7 @@ body {
   font-size: 15px;
   color: #fff;
   border: none;
+  border-radius: 5px;
   outline: none;
   cursor: pointer;
   background: rgb(83, 133, 167);
@@ -278,6 +360,7 @@ body {
   padding: 15px 0;
   color: #fff;
   border: none;
+  border-radius: 5px;
   outline: none;
   cursor: pointer;
   background: rgb(83, 133, 167);
@@ -290,6 +373,7 @@ body {
   color: #fff;
   border: none;
   outline: none;
+  border-radius: 5px;
   cursor: pointer;
   background: rgb(83, 133, 167);
 }

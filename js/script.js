@@ -26,7 +26,6 @@ const inputs = document.querySelector('.inputs'),
 
 winStat.innerText = winScore
 streakStat.innerText = streakScore
-
 easyBtn.classList.add('active')
 
 function levelPickEasy() {
@@ -78,10 +77,7 @@ function randomWord() {
     .map(function (level) {
       return level
     })
-
   let wordObj = chooseMode[Math.floor(Math.random() * chooseMode.length)]
-  diffuculty = wordObj.hard
-
   guessWord = wordObj.word //getting word from random object
   maxGuesses = 5
   incorrects = []
@@ -130,7 +126,7 @@ function tipPlease() {
 }
 
 function initGame(e) {
-  let key = e.target.value
+  let key = e.target.value.toLowerCase()
   if (
     key.match(/^[A-Za-z]+$/) &&
     !incorrects.includes(` ${key}`) &&
