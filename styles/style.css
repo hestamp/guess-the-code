@@ -61,7 +61,7 @@ body {
 }
 
 .wrapper {
-  width: 450px;
+  width: 650px;
   background: #ffffff;
   border-radius: 10px;
   margin: 10px;
@@ -84,15 +84,57 @@ body {
 
 .headers {
   width: 250px;
+  background: rgb(83, 133, 167);
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  position: absolute;
+  top: 70px;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 3px 3px 3px rgb(173, 173, 173);
+}
+
+.headers h1 {
+  color: #fff;
+}
+
+.link {
+  opacity: 0;
+  width: 150px;
+  background: rgb(167, 96, 83);
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  position: absolute;
+  top: 150px;
+  text-align: center;
+  padding: 5px;
+}
+
+.link a {
+  color: #fff;
+}
+
+.link.active {
+  opacity: 1;
+}
+
+.task {
+  width: 450px;
   background: #fff;
   justify-content: center;
   border-radius: 10px;
   border: 2px solid #ccc;
   position: absolute;
-  top: 100px;
+  top: 180px;
   text-align: center;
-  margin: 10px;
+  padding: 5px;
   box-shadow: 3px 3px 3px rgb(173, 173, 173);
+}
+
+.task p {
+  font-size: 19px;
 }
 
 .levels {
@@ -103,7 +145,7 @@ body {
   border: 2px solid #ccc;
   position: absolute;
   padding: 10px;
-  top: 190px;
+  bottom: 200px;
   display: flex;
   text-align: center;
   margin: 10px;
@@ -204,7 +246,7 @@ body {
 
 .scoreTable {
   position: absolute;
-  bottom: 150px;
+  bottom: 100px;
   justify-content: space-between;
   width: 250px;
   background: #fff;
@@ -224,6 +266,19 @@ body {
     border-radius: 10px;
     margin: 10px;
     box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  }
+
+  .task {
+    width: 320px;
+    background: #fff;
+    justify-content: center;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    position: absolute;
+    top: 75px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 3px 3px 3px rgb(173, 173, 173);
   }
 
   .headers {
@@ -254,8 +309,8 @@ body {
 
   .levels {
     position: absolute;
-    top: 100px;
     width: 300px;
+    bottom: 90px;
   }
 }
 
@@ -336,7 +391,15 @@ body {
 
 .details .hintPhrase {
   display: flex;
+  font-size: 18px;
   justify-content: center;
+  background-color: rgb(83, 133, 167);
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.hintPhrase span {
+  color: #fff;
 }
 
 .stabs .resetScore {

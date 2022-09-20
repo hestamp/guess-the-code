@@ -21,9 +21,11 @@ const inputs = document.querySelector('.inputs'),
   tipBtn = document.querySelector('.tipButton'),
   resetScoreBtn = document.querySelector('.resetScore'),
   wrappMe = document.querySelector('.wrapper'),
+  linkBlock = document.querySelector('.link'),
   hintPhrase = document.querySelector('.hintPhrase span'),
+  linkHelper = document.getElementById('showLink'),
   wrongLetters = document.querySelector('.wrongLetters span'),
-  congratsBlock = document.querySelector('.guessedBlock'),
+  taskBlock = document.querySelector('.taskText'),
   winStat = document.querySelector('.winGames span'),
   streakStat = document.querySelector('.winStrick span'),
   guessesLeft = document.querySelector('.leftTries span'),
@@ -72,6 +74,7 @@ function randomWord() {
     streakStat.innerText = streakScore || 0
   }
   wrappMe.classList.remove('active', 'wrong')
+  linkBlock.classList.remove('active')
 
   chooseMode = someArray
     .filter(function (level) {
@@ -82,12 +85,13 @@ function randomWord() {
     .map(function (level) {
       return level
     })
-  if (chooseMode.length > 1) {
-    console.log(`Difficult level is: ${diffucultySet}`, chooseMode)
+  if (chooseMode.length > 0) {
+    console.log(
+      `Difficult level is: ${diffucultySet}. Array have ${chooseMode.length} positions`
+    )
     wordObj = chooseMode[Math.floor(Math.random() * chooseMode.length)]
     console.log(wordObj)
     indexWord = someArray.indexOf(wordObj)
-    console.log(indexWord)
     guessWord = wordObj.word
     maxGuesses = 5
     incorrects = []
@@ -99,9 +103,11 @@ function randomWord() {
     for (let i = 0; i < guessWord.length; i++) {
       html += '<input class="input"type="text" disabled />'
     }
+    linkHelper.href = wordObj.helper
     hintPhrase.innerText = hintPhraser
     guessesLeft.innerText = maxGuesses
     wrongLetters.innerText = incorrects
+    taskBlock.innerText = wordObj.task
     inputs.innerHTML = html
     tipBtn.classList.remove('active')
   } else {
@@ -188,6 +194,7 @@ function initGame(e) {
       streakStat.innerText = streakScore
     } else if (maxGuesses < 1) {
       wrappMe.classList.add('wrong')
+      linkBlock.classList.add('active')
       streakScore = 0
       streakStat.innerText = streakScore
       localStorage.setItem('streak', '0')
