@@ -256,6 +256,86 @@ body {
   box-shadow: 3px 3px 3px rgb(173, 173, 173);
 }
 
+.scoreTable .stabs {
+  margin: 15px;
+  justify-content: space-around;
+  display: flex;
+}
+
+.content .details {
+  margin: 15px 10px 25px;
+  border-bottom: 1px solid #ccc;
+}
+
+.details p {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.details .hintPhrase {
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  background-color: rgb(83, 133, 167);
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.hintPhrase span {
+  color: #fff;
+}
+
+.stabs .resetScore {
+  width: 25%;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+
+.content .buttons {
+  justify-content: space-around;
+  display: flex;
+}
+.content .resetButton {
+  width: 62%;
+  font-size: 20px;
+  padding: 15px 0;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+
+.content .tipButton {
+  width: 15%;
+  font-size: 20px;
+  padding: 15px 0;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+.content .tipButton.active {
+  background: rgb(167, 83, 83);
+}
+
+.tryWrong {
+  justify-content: space-between;
+  display: flex;
+}
+
+.tryWrong .wrongLetters span {
+  color: rgb(167, 83, 83);
+}
+
 @media only screen and (max-width: 750px) {
   .scoreTable {
     position: absolute;
@@ -268,6 +348,19 @@ body {
     box-shadow: 5px 5px 5px rgb(173, 173, 173);
   }
 
+  .link {
+    opacity: 0;
+    width: 150px;
+    background: rgb(167, 96, 83);
+    justify-content: center;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    position: absolute;
+    top: 210px;
+    text-align: center;
+    padding: 5px;
+  }
+
   .task {
     width: 320px;
     background: #fff;
@@ -275,7 +368,7 @@ body {
     border-radius: 10px;
     border: 2px solid #ccc;
     position: absolute;
-    top: 75px;
+    top: 105px;
     text-align: center;
     margin: 10px;
     box-shadow: 3px 3px 3px rgb(173, 173, 173);
@@ -283,7 +376,6 @@ body {
 
   .headers {
     width: 250px;
-    background: #fff;
     justify-content: center;
     border-radius: 10px;
     position: absolute;
@@ -371,84 +463,4 @@ body {
     left: 25px;
     width: 300px;
   }
-}
-
-.scoreTable .stabs {
-  margin: 15px;
-  justify-content: space-around;
-  display: flex;
-}
-
-.content .details {
-  margin: 15px 10px 25px;
-  border-bottom: 1px solid #ccc;
-}
-
-.details p {
-  font-size: 19px;
-  margin-bottom: 10px;
-}
-
-.details .hintPhrase {
-  display: flex;
-  font-size: 18px;
-  justify-content: center;
-  background-color: rgb(83, 133, 167);
-  border-radius: 5px;
-  padding: 2px;
-}
-
-.hintPhrase span {
-  color: #fff;
-}
-
-.stabs .resetScore {
-  width: 25%;
-  font-size: 15px;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-  background: rgb(83, 133, 167);
-}
-
-.content .buttons {
-  justify-content: space-around;
-  display: flex;
-}
-.content .resetButton {
-  width: 82%;
-  font-size: 20px;
-  padding: 15px 0;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-  background: rgb(83, 133, 167);
-}
-
-.content .tipButton {
-  width: 15%;
-  font-size: 20px;
-  padding: 15px 0;
-  color: #fff;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background: rgb(83, 133, 167);
-}
-.content .tipButton.active {
-  background: rgb(167, 83, 83);
-}
-
-.tryWrong {
-  justify-content: space-between;
-  display: flex;
-}
-
-.tryWrong .wrongLetters span {
-  color: rgb(167, 83, 83);
 }
