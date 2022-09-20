@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Word Game test | Tom Hestamp</title>
+  </head>
+  <body>
+    <div class="headers">
+      <h1>Guess The Word</h1>
+    </div>
+    <div class="levels">
+      <button class="easyButton">Easy</button>
+      <button class="medButton">Medium</button>
+      <button class="hardButton">Hard</button>
+    </div>
+    <div class="scoreTable">
+      <div class="stabs">
+        <div class="winGames">Wins: <span> 0</span></div>
+        <div class="winStrick">Streak: <span> 0</span></div>
+        <button class="resetScore">Reset</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="content">
+        <div class="details">
+          <p class="hintPhrase"><span> </span></p>
+        </div>
+        <input type="text" class="typingInput" maxlength="1" />
+        <div class="inputs"></div>
+        <div class="details">
+          <div class="tryWrong">
+            <p class="wrongLetters">Wrong: <span></span></p>
+            <p class="leftTries">Try: <span></span></p>
+          </div>
+        </div>
+        <!-- <div class="guessedBlock"></div> -->
+        <div class="buttons">
+          <button class="resetButton">New Word</button>
+          <button class="tipButton">?</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/words.js"></script>
+    <script src="js/script.js"></script>
+    <!-- <script src="js/script2.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,307 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    315deg,
+    hsl(207, 61%, 64%) 15%,
+    rgba(60, 132, 206, 1) 38%,
+    #7ba2c2 68%,
+    #2081c2 98%
+  );
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+  background-attachment: fixed;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.wrapper {
+  width: 450px;
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: -15px 15px 55px rgb(173, 173, 173),
+    15px -15px 55px rgb(173, 173, 173);
+}
+
+.wrapper.active {
+  box-shadow: -15px 15px 35px rgb(74, 180, 131),
+    15px -15px 55px rgb(85, 197, 119);
+}
+
+.wrapper.wrong {
+  box-shadow: -15px 15px 55px rgb(180, 74, 74), 15px -15px 55px rgb(180, 74, 74);
+}
+
+.headers {
+  width: 250px;
+  background: #fff;
+  justify-content: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 150px;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 5px 5px 5px rgb(173, 173, 173);
+}
+
+.levels {
+  width: 350px;
+  background: #fff;
+  justify-content: space-around;
+  border-radius: 10px;
+  position: absolute;
+  padding: 10px;
+  top: 225px;
+  display: flex;
+  text-align: center;
+  margin: 10px;
+  box-shadow: 5px 5px 5px rgb(173, 173, 173);
+}
+
+.guessedBlock {
+  width: 390px;
+  background: #fff;
+  border-radius: 10px;
+  position: absolute;
+  padding: 10px;
+  bottom: 235px;
+  display: flex;
+  margin: 10px;
+  box-shadow: 5px 5px 5px rgb(173, 173, 173);
+}
+
+.levels .easyButton {
+  width: 25%;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+
+.levels .easyButton.active {
+  background: rgb(167, 96, 83);
+}
+
+.levels .medButton {
+  width: 25%;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+
+.levels .medButton.active {
+  background: rgb(167, 96, 83);
+}
+
+.levels .hardButton {
+  width: 25%;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+
+.levels .hardButton.active {
+  background: rgb(167, 96, 83);
+}
+
+.headers h1 {
+  font-size: 20px;
+  font-weight: 500;
+  padding: 5px;
+  margin: 5px;
+}
+
+.wrapper .content {
+  margin: 20px;
+}
+
+.content .typingInput {
+  z-index: -999;
+  position: absolute;
+  opacity: 0;
+}
+
+.content .inputs {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ccc;
+  justify-content: center;
+}
+
+.inputs input {
+  height: 45px;
+  width: 45px;
+  margin: 4px;
+  border: 2px solid #9dc6dd;
+  border-radius: 5px;
+  background: none;
+  font-size: 35px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  color: #1f567a;
+}
+
+.input.active {
+  order: 3px solid #4daf7e;
+}
+
+.inputs input:first-child {
+  margin-left: 0px;
+}
+
+.scoreTable {
+  position: absolute;
+  bottom: 150px;
+  justify-content: space-between;
+  width: 250px;
+  background: #fff;
+  border-radius: 10px;
+  margin: 10px;
+  box-shadow: 5px 5px 5px rgb(173, 173, 173);
+}
+
+@media only screen and (max-width: 750px) {
+  .scoreTable {
+    position: absolute;
+    bottom: 10px;
+    justify-content: space-between;
+    width: 250px;
+    background: #fff;
+    border-radius: 10px;
+    margin: 10px;
+    box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  }
+
+  .headers {
+    width: 250px;
+    background: #fff;
+    justify-content: center;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 5px 5px 5px rgb(173, 173, 173);
+  }
+
+  .inputs input {
+    height: 35px;
+    width: 35px;
+    margin: 4px;
+    border: 2px solid #9dc6dd;
+    border-radius: 5px;
+    background: none;
+    font-size: 25px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    color: #1f567a;
+  }
+
+  .levels {
+    position: absolute;
+    top: 100px;
+    width: 300px;
+  }
+}
+
+.scoreTable .stabs {
+  margin: 15px;
+  justify-content: space-around;
+  display: flex;
+}
+
+.content .details {
+  margin: 15px 10px 25px;
+  border-bottom: 1px solid #ccc;
+}
+
+.details p {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.details .hintPhrase {
+  display: flex;
+  justify-content: center;
+}
+
+.stabs .resetScore {
+  width: 25%;
+  font-size: 15px;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+
+.content .buttons {
+  justify-content: space-around;
+  display: flex;
+}
+.content .resetButton {
+  width: 82%;
+  font-size: 20px;
+  padding: 15px 0;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+
+.content .tipButton {
+  width: 15%;
+  font-size: 20px;
+  padding: 15px 0;
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+.content .tipButton.active {
+  background: rgb(167, 83, 83);
+}
+
+.tryWrong {
+  justify-content: space-between;
+  display: flex;
+}
+
+.tryWrong .wrongLetters span {
+  color: rgb(167, 83, 83);
+}
