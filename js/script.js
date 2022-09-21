@@ -11,7 +11,8 @@ let guessWord,
   wordObj,
   someArray = wordList,
   indexWord,
-  hintPhraser
+  hintPhraser,
+  guessed
 
 const inputs = document.querySelector('.inputs'),
   resetBtn = document.querySelector('.resetButton'),
@@ -93,6 +94,7 @@ function randomWord() {
     console.log(wordObj)
     indexWord = someArray.indexOf(wordObj)
     guessWord = wordObj.word
+    guessed = wordObj.guessed
     maxGuesses = 5
     incorrects = []
     corrects = []
@@ -128,27 +130,36 @@ function resetButtonFun() {
   localStorage.setItem('streak', '0')
 }
 
-function tipPlease() {
-  if (maxGuesses > 3) {
-    let tipLetterPick =
-      tipLetterArray[Math.floor(Math.random() * tipLetterArray.length)]
-    console.log(tipLetterPick)
-    maxGuesses = maxGuesses - 2
-    tipBtn.classList.add('active')
-    guessesLeft.innerText = `${maxGuesses} (no tips)`
+function ifAllGuessed() {
+  setTimeout(() => {
+    if (corrects.length === guessWord.length) {
+      wrappMe.classList.add('active')
+      hintPhrase.innerText = guessed
+      someArray.splice(indexWord, 1)
 
-    if (guessWord.includes(tipLetterPick)) {
+      setTimeout(function () {
+        randomWord()
+        clearTimeout
+      }, 1000)
+
+      winScore++
+      streakScore++
+      localStorage.setItem('wins', `${winScore}`)
+      localStorage.setItem('streak', `${streakScore}`)
+      winStat.innerText = winScore
+      streakStat.innerText = streakScore
+    } else if (maxGuesses < 1) {
+      wrappMe.classList.add('wrong')
+      linkBlock.classList.add('active')
+      hintPhrase.innerText = guessed
+      streakScore = 0
+      streakStat.innerText = streakScore
+      localStorage.setItem('streak', '0')
       for (let i = 0; i < guessWord.length; i++) {
-        if (guessWord[i] === tipLetterPick) {
-          corrects.push(tipLetterPick)
-          inputs.querySelectorAll('input')[i].value = tipLetterPick
-        }
+        inputs.querySelectorAll('input')[i].value = guessWord[i]
       }
     }
-  } else {
-    tipBtn.classList.add('active')
-    guessesLeft.innerText = `${maxGuesses} (no tips)`
-  }
+  })
 }
 
 function initGame(e) {
@@ -175,34 +186,33 @@ function initGame(e) {
     wrongLetters.innerText = incorrects
   }
   typeInput.value = ''
+  ifAllGuessed()
+}
 
-  setTimeout(() => {
-    if (corrects.length === guessWord.length) {
-      wrappMe.classList.add('active')
-      someArray.splice(indexWord, 1)
+function tipPlease() {
+  if (maxGuesses > 3) {
+    let tipLetterPick =
+      tipLetterArray[Math.floor(Math.random() * tipLetterArray.length)]
+    console.log(tipLetterPick)
+    maxGuesses = maxGuesses - 2
+    tipBtn.classList.add('active')
+    guessesLeft.innerText = `${maxGuesses} (no tips)`
 
-      setTimeout(function () {
-        randomWord()
-        clearTimeout
-      }, 1000)
-
-      winScore++
-      streakScore++
-      localStorage.setItem('wins', `${winScore}`)
-      localStorage.setItem('streak', `${streakScore}`)
-      winStat.innerText = winScore
-      streakStat.innerText = streakScore
-    } else if (maxGuesses < 1) {
-      wrappMe.classList.add('wrong')
-      linkBlock.classList.add('active')
-      streakScore = 0
-      streakStat.innerText = streakScore
-      localStorage.setItem('streak', '0')
+    if (guessWord.includes(tipLetterPick)) {
       for (let i = 0; i < guessWord.length; i++) {
-        inputs.querySelectorAll('input')[i].value = guessWord[i]
+        if (guessWord[i] === tipLetterPick) {
+          corrects.push(tipLetterPick)
+          inputs.querySelectorAll('input')[i].value = tipLetterPick
+          if (corrects.length === guessWord.length) {
+            ifAllGuessed()
+          }
+        }
       }
     }
-  })
+  } else {
+    tipBtn.classList.add('active')
+    guessesLeft.innerText = `${maxGuesses} (no tips)`
+  }
 }
 
 function clearData() {

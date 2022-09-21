@@ -2,6 +2,7 @@ const wordList = [
   {
     word: 'alt',
     hint: `<img src="notaweather.png" ▢▢▢="notaweather Logo">`,
+    guessed: `<img src="notaweather.png" alt="notaweather Logo">`,
     task: 'Specify an alternate text for the image',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_attributes.asp`,
@@ -9,6 +10,7 @@ const wordList = [
   {
     word: 'script',
     hint: `<▢▢▢▢▢▢ src="module.js"></▢▢▢▢▢▢>`,
+    guessed: `<script src="module.js"></script>`,
     task: 'Connect JavaScript file "module.js"',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_scripts.asp`,
@@ -16,6 +18,7 @@ const wordList = [
   {
     word: 'code',
     hint: `<p>Code example: <▢▢▢▢>let person;</▢▢▢▢></p>`,
+    guessed: `<p>Code example: <code>let person;</code></p>`,
     task: 'Define the text "let person;" as programming code',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_computercode_elements.asp`,
@@ -23,6 +26,7 @@ const wordList = [
   {
     word: 'input',
     hint: `<▢▢▢▢▢ type="button" value="OK">`,
+    guessed: `<input type="button" value="OK">`,
     task: 'Make a field where the user can enter data with the type "button" and the value "OK"',
     hard: 1,
     helper: `https://www.w3schools.com/tags/tag_input.asp`,
@@ -30,6 +34,7 @@ const wordList = [
   {
     word: 'method',
     hint: `<form action="/action_page.php" ▢▢▢▢▢▢="post">`,
+    guessed: `<form action="/action_page.php" method="post">`,
     task: 'Specify that the form is submitted using the "POST"',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_forms_attributes.asp`,
@@ -37,6 +42,7 @@ const wordList = [
   {
     word: 'textarea',
     hint: `<▢▢▢▢▢▢▢▢ name="note"></▢▢▢▢▢▢▢▢>`,
+    guessed: `<textarea name="note"></textarea>`,
     task: 'Create multi-line text input control',
     hard: 1,
     helper: `https://www.w3schools.com/tags/tag_textarea.asp`,
@@ -44,6 +50,7 @@ const wordList = [
   {
     word: 'maxlength',
     hint: `<input type="text" ▢▢▢▢▢▢▢▢▢="40">`,
+    guessed: `<input type="text" maxlength="40">`,
     task: 'Set the max numbers of characters allowed in the input field to 40',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_form_attributes.asp`,
@@ -51,6 +58,7 @@ const wordList = [
   {
     word: 'width',
     hint: `<iframe src="https://www.w3.com" ▢▢▢▢▢="500"></iframe>`,
+    guessed: `<iframe src="https://www.w3.com" width="500"></iframe>`,
     task: 'Use an iframe attribute to make the iframe 500 pixels wide',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_iframe.asp`,
@@ -59,6 +67,7 @@ const wordList = [
   {
     word: 'class',
     hint: `<p ▢▢▢▢▢="special">My paragraph</p>`,
+    guessed: `<p class="special">My paragraph</p>`,
     task: 'Create selector for adding styles',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_classes.asp`,
@@ -66,6 +75,7 @@ const wordList = [
   {
     word: 'li',
     hint: `<ul><▢▢>Coffee</▢▢></ul>`,
+    guessed: `<ul><li>Coffee</li></ul>`,
     task: `Add a list item with the text "Coffee" inside the <ul>`,
     hard: 1,
     helper: `https://www.w3schools.com/html/html_lists.asp`,
@@ -73,6 +83,7 @@ const wordList = [
   {
     word: 'src',
     hint: `<img ▢▢▢="smiley.gif">`,
+    guessed: `<img src="smiley.gif">`,
     task: 'Add the correct HTML attribute to display the "smiley.gif" image',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_images.asp`,
@@ -80,6 +91,7 @@ const wordList = [
   {
     word: 'target',
     hint: `<a href="images.asp" ▢▢▢▢▢▢="_blank">Images</a>`,
+    guessed: `<a href="images.asp" target="_blank">Images</a>`,
     task: 'Use the correct HTML attribute to make the link open in a new window',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_links.asp`,
@@ -87,6 +99,7 @@ const wordList = [
   {
     word: 'q',
     hint: `<p>I am so <▢>cool<▢> in this</p>`,
+    guessed: `<p>I am so <q>cool<q> in this</p>`,
     task: 'Use an HTML element to add quotation marks around the letters "cool"',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_quotation_elements.asp`,
@@ -94,6 +107,7 @@ const wordList = [
   {
     word: 'style',
     hint: `<p ▢▢▢▢▢="color:blue;">This is a paragraph.</p>`,
+    guessed: `<p style="color:blue;">This is a paragraph.</p>`,
     task: `Use the correct HTML attribute, and CSS, to set the color of the paragraph to "blue"`,
     hard: 1,
     helper: `https://www.w3schools.com/html/html_styles.asp`,
@@ -101,6 +115,7 @@ const wordList = [
   {
     word: 'br',
     hint: `<p>My Bonnie lies<▢▢>over the ocean.</p>`,
+    guessed: `<p>My Bonnie lies<br>over the ocean.</p>`,
     task: 'Add a line break in the middle of the paragraph',
     hard: 1,
     helper: `https://www.w3schools.com/TAGS/tag_br.asp`,
@@ -108,6 +123,7 @@ const wordList = [
   {
     word: 'href',
     hint: `<a ▢▢▢▢="https://www.notaweather.live">Weather Website</a>`,
+    guessed: `<a href="https://www.notaweather.live">Weather Website</a>`,
     task: 'Make the element below into a link that goes to "https://www.notaweather.live"',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_attributes.asp`,

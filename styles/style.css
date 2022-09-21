@@ -107,7 +107,7 @@ body {
   border-radius: 10px;
   border: 2px solid #ccc;
   position: absolute;
-  top: 150px;
+  top: 160px;
   text-align: center;
   padding: 5px;
 }
@@ -129,7 +129,7 @@ body {
   position: absolute;
   top: 180px;
   text-align: center;
-  padding: 5px;
+  padding: 15px;
   box-shadow: 3px 3px 3px rgb(173, 173, 173);
 }
 
@@ -323,8 +323,20 @@ body {
   cursor: pointer;
   background: rgb(83, 133, 167);
 }
+
 .content .tipButton.active {
   background: rgb(167, 83, 83);
+}
+.content .infoButton {
+  width: 15%;
+  font-size: 20px;
+  padding: 15px 0;
+  color: #fff;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
 }
 
 .tryWrong {
