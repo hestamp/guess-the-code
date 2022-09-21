@@ -190,7 +190,7 @@ function initGame(e) {
 }
 
 function tipPlease() {
-  if (maxGuesses > 3) {
+  if (maxGuesses > 3 && !corrects.includes(tipLetterArray)) {
     let tipLetterPick =
       tipLetterArray[Math.floor(Math.random() * tipLetterArray.length)]
     console.log(tipLetterPick)

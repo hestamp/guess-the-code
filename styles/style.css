@@ -135,6 +135,7 @@ body {
 
 .task p {
   font-size: 19px;
+  font-weight: 500;
 }
 
 .levels {
@@ -155,6 +156,7 @@ body {
 .levels .easyButton {
   width: 30%;
   font-size: 15px;
+  font-weight: 600;
   color: #fff;
   border-radius: 5px;
   border: none;
@@ -173,6 +175,7 @@ body {
   color: #fff;
   border-radius: 5px;
   border: none;
+  font-weight: 600;
   outline: none;
   cursor: pointer;
   background: rgb(83, 133, 167);
@@ -187,6 +190,7 @@ body {
   font-size: 15px;
   color: #fff;
   border: none;
+  font-weight: 600;
   border-radius: 5px;
   outline: none;
   cursor: pointer;
@@ -199,7 +203,7 @@ body {
 
 .headers h1 {
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 600;
   padding: 5px;
   margin: 5px;
 }
@@ -260,6 +264,7 @@ body {
   margin: 15px;
   justify-content: space-around;
   display: flex;
+  font-weight: 500;
 }
 
 .content .details {
@@ -275,6 +280,7 @@ body {
 .details .hintPhrase {
   display: flex;
   font-size: 18px;
+  font-weight: 500;
   justify-content: center;
   background-color: rgb(83, 133, 167);
   border-radius: 5px;
@@ -303,6 +309,7 @@ body {
 .content .resetButton {
   width: 62%;
   font-size: 20px;
+  font-weight: 600;
   padding: 15px 0;
   color: #fff;
   border: none;
@@ -314,8 +321,9 @@ body {
 
 .content .tipButton {
   width: 15%;
-  font-size: 20px;
-  padding: 15px 0;
+  font-size: 25px;
+  padding: 10px 0;
+  font-weight: 600;
   color: #fff;
   border: none;
   outline: none;
@@ -329,8 +337,9 @@ body {
 }
 .content .infoButton {
   width: 15%;
-  font-size: 20px;
-  padding: 15px 0;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 5px 0;
   color: #fff;
   border: none;
   outline: none;
@@ -342,6 +351,7 @@ body {
 .tryWrong {
   justify-content: space-between;
   display: flex;
+  font-weight: 500;
 }
 
 .tryWrong .wrongLetters span {
