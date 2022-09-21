@@ -22,6 +22,12 @@ body {
   animation: gradient 9s ease infinite;
   background-size: 400% 400%;
   background-attachment: fixed;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 @keyframes gradient {
@@ -64,10 +70,32 @@ body {
   width: 650px;
   background: #ffffff;
   border-radius: 10px;
+  position: absolute;
   margin: 10px;
   border: 3px solid #ccc;
   box-shadow: -15px 15px 255px rgb(173, 173, 173),
     15px -15px 255px rgb(173, 173, 173);
+}
+.infoBlock {
+  opacity: 0;
+  z-index: -999;
+}
+
+.infoBlock .header {
+  text-align: center;
+  position: relative;
+  top: -30px;
+  border-radius: 10px;
+  margin: -5px;
+}
+
+.infoBlock.active {
+  z-index: 1;
+  opacity: 1;
+  width: 650px;
+  height: 330px;
+  position: absolute;
+  border-radius: 10px;
 }
 
 .wrapper.active {
@@ -89,6 +117,7 @@ body {
   border-radius: 10px;
   border: 2px solid #ccc;
   position: absolute;
+  z-index: 1;
   top: 70px;
   text-align: center;
   margin: 10px;
@@ -127,6 +156,7 @@ body {
   border-radius: 10px;
   border: 2px solid #ccc;
   position: absolute;
+  z-index: 1;
   top: 180px;
   text-align: center;
   padding: 15px;
@@ -346,6 +376,12 @@ body {
   border-radius: 5px;
   cursor: pointer;
   background: rgb(83, 133, 167);
+}
+
+.infoButton.active {
+  animation: lose 3s ease infinite;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .tryWrong {

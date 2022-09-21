@@ -12,16 +12,19 @@ let guessWord,
   someArray = wordList,
   indexWord,
   hintPhraser,
-  guessed
+  guessed,
+  leftLetter
 
 const inputs = document.querySelector('.inputs'),
   resetBtn = document.querySelector('.resetButton'),
   easyBtn = document.querySelector('.easyButton'),
+  infoButton = document.querySelector('.infoButton'),
   medBtn = document.querySelector('.medButton'),
   hardBtn = document.querySelector('.hardButton'),
   tipBtn = document.querySelector('.tipButton'),
   resetScoreBtn = document.querySelector('.resetScore'),
   wrappMe = document.querySelector('.wrapper'),
+  infoBlock = document.querySelector('.infoBlock'),
   linkBlock = document.querySelector('.link'),
   hintPhrase = document.querySelector('.hintPhrase span'),
   linkHelper = document.getElementById('showLink'),
@@ -35,7 +38,7 @@ const inputs = document.querySelector('.inputs'),
 winStat.innerText = winScore
 streakStat.innerText = streakScore
 easyBtn.classList.add('active')
-
+//functions for levels
 function levelPickEasy() {
   if (easyBtn.classList.length < 2) {
     easyBtn.classList.add('active')
@@ -66,7 +69,7 @@ function levelPickHard() {
     randomWord()
   }
 }
-
+// getting word from array from words.js
 function randomWord() {
   if (localStorage) {
     winScore = localStorage.getItem('wins')
@@ -76,7 +79,7 @@ function randomWord() {
   }
   wrappMe.classList.remove('active', 'wrong')
   linkBlock.classList.remove('active')
-
+  //filtration and map new array based on choosed lvl
   chooseMode = someArray
     .filter(function (level) {
       let dif = diffucultySet
@@ -87,11 +90,11 @@ function randomWord() {
       return level
     })
   if (chooseMode.length > 0) {
-    console.log(
-      `Difficult level is: ${diffucultySet}. Array have ${chooseMode.length} positions`
-    )
+    //getting random from choosen array lvl
     wordObj = chooseMode[Math.floor(Math.random() * chooseMode.length)]
-    console.log(wordObj)
+    console.log(
+      `Word - ${wordObj.word}. Difficult level is: ${diffucultySet}. Array have ${chooseMode.length} positions `
+    )
     indexWord = someArray.indexOf(wordObj)
     guessWord = wordObj.word
     guessed = wordObj.guessed
@@ -100,7 +103,7 @@ function randomWord() {
     corrects = []
     hintPhraser = wordObj.hint
     tipLetterArray = guessWord.split('')
-
+    //based on a length ow words generates input blocks
     let html = ''
     for (let i = 0; i < guessWord.length; i++) {
       html += '<input class="input"type="text" disabled />'
@@ -113,6 +116,7 @@ function randomWord() {
     inputs.innerHTML = html
     tipBtn.classList.remove('active')
   } else {
+    //restart page after all guessed
     hintPhrase.innerText = `Thats all. Realoading...`
     wrappMe.classList.add('active')
     setTimeout(function () {
@@ -122,14 +126,14 @@ function randomWord() {
 }
 
 randomWord()
-
+//new code button
 function resetButtonFun() {
   randomWord()
   streakScore = 0
   streakStat.innerText = streakScore
   localStorage.setItem('streak', '0')
 }
-
+//all guessed function
 function ifAllGuessed() {
   setTimeout(() => {
     if (corrects.length === guessWord.length) {
@@ -161,7 +165,7 @@ function ifAllGuessed() {
     }
   })
 }
-
+//pushing guessed to the inputs
 function initGame(e) {
   let key = e.target.value.toLowerCase()
   if (
@@ -191,13 +195,15 @@ function initGame(e) {
 
 function tipPlease() {
   if (maxGuesses > 3 && !corrects.includes(tipLetterArray)) {
+    //Hints filtration from corrects
+    leftLetter = tipLetterArray.filter((x) => corrects.indexOf(x) == -1)
+    //Getting random letter from word array exept guessed
     let tipLetterPick =
-      tipLetterArray[Math.floor(Math.random() * tipLetterArray.length)]
-    console.log(tipLetterPick)
+      leftLetter[Math.floor(Math.random() * leftLetter.length)]
     maxGuesses = maxGuesses - 2
     tipBtn.classList.add('active')
-    guessesLeft.innerText = `${maxGuesses} (no tips)`
-
+    guessesLeft.innerText = `${maxGuesses} (no hints)`
+    //pushing hint to the inputs
     if (guessWord.includes(tipLetterPick)) {
       for (let i = 0; i < guessWord.length; i++) {
         if (guessWord[i] === tipLetterPick) {
@@ -214,7 +220,7 @@ function tipPlease() {
     guessesLeft.innerText = `${maxGuesses} (no tips)`
   }
 }
-
+// reset score func
 function clearData() {
   localStorage.clear()
   winScore = 0
@@ -222,8 +228,23 @@ function clearData() {
   winStat.innerText = winScore
   streakStat.innerText = streakScore
 }
-
+//open info button
+function openInfo() {
+  if ((infoButton.id = 1)) {
+    infoBlock.classList.add('active')
+    infoButton.classList.add('active')
+    infoButton.innerText = 'x'
+    infoButton.id = 2
+  } else if ((infoButton.id = 2)) {
+    infoBlock.classList.remove('active')
+    infoButton.classList.remove('active')
+    infoButton.innerText = 'i'
+    infoButton.id = 1
+  }
+}
+//all clickers and input with focusing typing
 resetBtn.addEventListener('click', resetButtonFun)
+infoButton.addEventListener('click', openInfo)
 easyBtn.addEventListener('click', levelPickEasy)
 medBtn.addEventListener('click', levelPickMed)
 hardBtn.addEventListener('click', levelPickHard)
