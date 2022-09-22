@@ -76,27 +76,6 @@ body {
   box-shadow: -15px 15px 255px rgb(173, 173, 173),
     15px -15px 255px rgb(173, 173, 173);
 }
-.infoBlock {
-  opacity: 0;
-  z-index: -999;
-}
-
-.infoBlock .header {
-  text-align: center;
-  position: relative;
-  top: -30px;
-  border-radius: 10px;
-  margin: -5px;
-}
-
-.infoBlock.active {
-  z-index: 1;
-  opacity: 1;
-  width: 650px;
-  height: 330px;
-  position: absolute;
-  border-radius: 10px;
-}
 
 .wrapper.active {
   animation: win 0.5s ease;
@@ -161,6 +140,47 @@ body {
   text-align: center;
   padding: 15px;
   box-shadow: 3px 3px 3px rgb(173, 173, 173);
+}
+.timerScore {
+  width: 160px;
+  background: #fff;
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  position: absolute;
+  z-index: -999;
+  opacity: 0;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 3px 3px 3px rgb(173, 173, 173);
+}
+.timerScore.active {
+  z-index: 1;
+  opacity: 1;
+}
+
+.timerScore .closeButton {
+  position: absolute;
+  right: 10px;
+  width: 10%;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: rgb(83, 133, 167);
+}
+
+.timerScore .scoreText {
+  text-align: left;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+.scoreText p span {
+  color: rgb(83, 133, 167);
 }
 
 .task p {
@@ -365,7 +385,7 @@ body {
 .content .tipButton.active {
   background: rgb(167, 83, 83);
 }
-.content .infoButton {
+.content .timerButton {
   width: 15%;
   font-size: 24px;
   font-weight: 600;
@@ -378,10 +398,13 @@ body {
   background: rgb(83, 133, 167);
 }
 
-.infoButton.active {
+.timerButton.not {
+  cursor: default;
+}
+
+.timerButton.active {
   animation: lose 3s ease infinite;
-  cursor: pointer;
-  z-index: 1;
+  cursor: default;
 }
 
 .tryWrong {

@@ -307,7 +307,7 @@ const wordList = [
   {
     word: 'splice',
     hint: `fruits.▢▢▢▢▢▢(1,2)`,
-    hint: `fruits.splice(1,2)`,
+    guessed: `fruits.splice(1,2)`,
     task: `Use method to remove "Orange" and "Apple" from fruits. let fruits = ["Banana", "Orange", "Apple", "Kiwi"]`,
     hard: 3,
     helper: `https://www.w3schools.com/Js/js_array_methods.asp`,

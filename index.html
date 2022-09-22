@@ -8,19 +8,21 @@
     <title>Guess The Code | Tom Hestamp</title>
   </head>
   <body>
-    <div class="infoBlock">
-      <div class="header">Task</div>
-      <div class="content">
-        <div class="buttons"></div>
-        <div class="textInfo"></div>
-      </div>
-    </div>
     <div class="headers">
       <h1>Guess The Code</h1>
     </div>
 
     <div class="task">
       <p class="taskText"></p>
+    </div>
+
+    <div class="timerScore">
+      <button class="closeButton">x</button>
+      <div class="scoreText">
+        <p class="winTimer">Wins: <span></span></p>
+        <p class="streakTimer">Streak: <span></span></p>
+        <p class="loseTimer">Lose: <span></span></p>
+      </div>
     </div>
 
     <div class="link">
@@ -43,7 +45,7 @@
           </div>
         </div>
         <div class="buttons">
-          <button id="1" class="infoButton">i</button>
+          <button id="1" class="timerButton">⧗</button>
           <button class="resetButton">New Code</button>
           <button class="tipButton">?</button>
         </div>
