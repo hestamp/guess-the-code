@@ -113,6 +113,7 @@ body {
   background: rgb(167, 96, 83);
   justify-content: center;
   border-radius: 10px;
+  z-index: -999;
   border: 2px solid #ccc;
   position: absolute;
   top: 160px;
@@ -126,6 +127,7 @@ body {
 
 .link.active {
   opacity: 1;
+  z-index: 1;
 }
 
 .task {
