@@ -122,9 +122,9 @@ const wordList = [
   },
   {
     word: 'href',
-    hint: `<a ▢▢▢▢="https://www.notaweather.live">Weather</a>`,
-    guessed: `<a href="https://www.notaweather.live">Weather</a>`,
-    task: 'Make the element below into a link that goes to "https://www.notaweather.live"',
+    hint: `<a ▢▢▢▢="https://www.weather.live">Weather</a>`,
+    guessed: `<a href="https://www.weather.live">Weather</a>`,
+    task: 'Make the element below into a link that goes to "https://www.weather.live"',
     hard: 1,
     helper: `https://www.w3schools.com/html/html_attributes.asp`,
   },

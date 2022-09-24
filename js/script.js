@@ -57,7 +57,7 @@ streakTimer.innerText = timerStreak
 loseTimer.innerText = timerLose
 //timer func
 function goTimer() {
-  taskBlock.innerText = 'Timer is started!'
+  taskBlock.innerText = 'Timer is started. You have 60 seconds. Hurry up!'
   hintPhrase.innerText = `Ready?`
   timerButton.innerText = `⧓`
   timerButton.classList.add('not')
@@ -176,7 +176,14 @@ function randomWord() {
     wrongLetters.innerText = incorrects
     taskBlock.innerText = wordObj.task
     inputs.innerHTML = html
-    tipBtn.classList.remove('active')
+
+    if (guessWord.length < 3) {
+      tipBtn.classList.add('active')
+      tipBtn.disabled = true
+    } else {
+      tipBtn.classList.remove('active')
+      tipBtn.disabled = false
+    }
   } else {
     //restart page after all guessed
     hintPhrase.innerText = `Thats all. Realoading...`
@@ -236,6 +243,10 @@ function ifAllGuessed() {
       //if timer ticking
       timerStreak = 0
       timerLose++
+      hintPhrase.innerText = guessed
+      for (let i = 0; i < guessWord.length; i++) {
+        inputs.querySelectorAll('input')[i].value = guessWord[i]
+      }
       wrappMe.classList.add('wrong')
       setTimeout(function () {
         randomWord()
@@ -281,7 +292,6 @@ function tipPlease() {
       leftLetter[Math.floor(Math.random() * leftLetter.length)]
     maxGuesses = maxGuesses - 2
     tipBtn.classList.add('active')
-    guessesLeft.innerText = `${maxGuesses} (no hints)`
     //pushing hint to the inputs
     if (guessWord.includes(tipLetterPick)) {
       for (let i = 0; i < guessWord.length; i++) {
@@ -296,7 +306,6 @@ function tipPlease() {
     }
   } else {
     tipBtn.classList.add('active')
-    guessesLeft.innerText = `${maxGuesses} (no hints)`
   }
 }
 // reset score func
