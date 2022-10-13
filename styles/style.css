@@ -205,7 +205,7 @@ body {
   box-shadow: 3px 3px 3px rgb(173, 173, 173);
 }
 
-.levels .easyButton {
+.levels button {
   width: 30%;
   font-size: 15px;
   font-weight: 600;
@@ -217,39 +217,7 @@ body {
   background: rgb(83, 133, 167);
 }
 
-.levels .easyButton.active {
-  background: rgb(167, 96, 83);
-}
-
-.levels .medButton {
-  width: 30%;
-  font-size: 15px;
-  color: #fff;
-  border-radius: 5px;
-  border: none;
-  font-weight: 600;
-  outline: none;
-  cursor: pointer;
-  background: rgb(83, 133, 167);
-}
-
-.levels .medButton.active {
-  background: rgb(167, 96, 83);
-}
-
-.levels .hardButton {
-  width: 30%;
-  font-size: 15px;
-  color: #fff;
-  border: none;
-  font-weight: 600;
-  border-radius: 5px;
-  outline: none;
-  cursor: pointer;
-  background: rgb(83, 133, 167);
-}
-
-.levels .hardButton.active {
+.levels button.active {
   background: rgb(167, 96, 83);
 }
 
@@ -672,17 +640,7 @@ body {
     width: 220px;
   }
 
-  .levels .easyButton {
-    font-size: 12px;
-    font-weight: 400;
-  }
-
-  .levels .medButton {
-    font-size: 12px;
-    font-weight: 400;
-  }
-
-  .levels .hardButton {
+  .levels button {
     font-size: 12px;
     font-weight: 400;
   }
